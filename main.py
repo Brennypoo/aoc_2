@@ -30,8 +30,9 @@ revised = {
 def play_bout(bout, part2):
     opp, me = bout[0]+bout[1], bout[1]
     rule_book = revised if part2 else rules
-    
+
     return rule_book[me] + rule_book[opp]
+
 
 def play_game(strategy_guide, part2 = False):
     points = 0
@@ -39,9 +40,10 @@ def play_game(strategy_guide, part2 = False):
         points += play_bout(bout, part2)
     return points
 
+
 def main(filename):
     strategy_guide = [line.strip().split() for line in open(filename).readlines()]
     print(f'original: {play_game(strategy_guide)} \n revised: {play_game(strategy_guide,True)}')
-    
+
 
 main('input_2.txt')
